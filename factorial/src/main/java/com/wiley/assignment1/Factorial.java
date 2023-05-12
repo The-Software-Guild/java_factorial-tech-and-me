@@ -34,15 +34,25 @@ public class Factorial {
 		*/
 
 		//YOUR CODE STARTS HERE
-		 String numStr = this.scanner.nextLine();
-		 int num = Integer.parseInt(numStr);
-		 if(num<1 || num>10) {
+		 boolean isValidInput = true;
+		 if(this.scanner.hasNextInt()) {
+			 int num = this.scanner.nextInt();
+			 if(num<1 || num>10) {		 
+				isValidInput = false;
+			 }else {
+				 this.printStream.print("number you have entered is :  " + num + "\n");
+				 return num;
+			 }	 
+		 }else {
+			isValidInput = false;
+		 }
+		 
+		 if(!isValidInput) {
 			 this.printStream.print("Please Enter valid Input as number between 1 and 10 only, both inclusive");
 			 return -1;
 		 }
-		 this.printStream.print("number you have entered is :  " + num + "\n");
-		 return num;
-		
+		 
+		return -1;
 
 		//YOUR CODE ENDS HERE
 		 
